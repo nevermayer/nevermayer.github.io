@@ -163,11 +163,12 @@
         var tensor = tf.tensor4d(arr);
         var resultado = modelo.predict(tensor).dataSync();
 
-        var respuesta="No estoy seguro";
-        if (resultado <= .4) 
+        var respuesta;
+        if (resultado <= .5) {
           respuesta = "Gato";
-        if (resultado >= .6) 
+        } else {
           respuesta = "Perro";
+        }
         document.getElementById("resultado").innerHTML= respuesta;
       }
 
